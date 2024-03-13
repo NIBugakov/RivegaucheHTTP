@@ -63,49 +63,21 @@
                     <Childs>
                       <AbstractStep z:Id="i12" i:type="ExecutedStep">
                         <Childs />
-                        <Id>b9c938b4-3833-49f6-bd4b-f33e6a0809bf</Id>
+                        <Id>ae93647e-c410-4160-9296-00bbefbe88ec</Id>
                         <Parent z:Ref="i11" />
                         <PropertyValues>
                           <PropertyValue z:Id="i13">
-                            <PropertyName>FilePath</PropertyName>
+                            <PropertyName>Value</PropertyName>
                             <_dataType>Expression</_dataType>
-                            <_expression>@"Dispatcher\SQLGetData.pix"</_expression>
+                            <_expression>new System.Net.NetworkCredential(string.Empty, dict_secureData["credentialPG_passwd"]).Password;</_expression>
                             <_value i:nil="true" />
                             <_xpathSettings xmlns:d15p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
                           </PropertyValue>
                           <PropertyValue z:Id="i14">
-                            <PropertyName>Parameters</PropertyName>
-                            <_dataType>Value</_dataType>
-                            <_expression i:nil="true" />
-                            <_value xmlns:d15p1="http://schemas.datacontract.org/2004/07/BR.Core" i:type="d15p1:ArrayOfArgumentItem">
-                              <d15p1:ArgumentItem z:Id="i15">
-                                <d15p1:ArgumentName>out_list_extractData</d15p1:ArgumentName>
-                                <d15p1:Expression>list_cityName</d15p1:Expression>
-                                <d15p1:Type>List&lt;System.String&gt;</d15p1:Type>
-                              </d15p1:ArgumentItem>
-                              <d15p1:ArgumentItem z:Id="i16">
-                                <d15p1:ArgumentName>in_str_tableName</d15p1:ArgumentName>
-                                <d15p1:Expression>dict_config["TableSqlCity"].ToString()</d15p1:Expression>
-                                <d15p1:Type>System.String</d15p1:Type>
-                              </d15p1:ArgumentItem>
-                              <d15p1:ArgumentItem z:Id="i17">
-                                <d15p1:ArgumentName>dict_config</d15p1:ArgumentName>
-                                <d15p1:Expression>dict_config</d15p1:Expression>
-                                <d15p1:Type>Dictionary&lt;System.String, System.Object&gt;</d15p1:Type>
-                              </d15p1:ArgumentItem>
-                              <d15p1:ArgumentItem z:Id="i18">
-                                <d15p1:ArgumentName>dict_secureData</d15p1:ArgumentName>
-                                <d15p1:Expression>dict_secureData</d15p1:Expression>
-                                <d15p1:Type>Dictionary&lt;System.String, System.Security.SecureString&gt;</d15p1:Type>
-                              </d15p1:ArgumentItem>
-                            </_value>
-                            <_xpathSettings xmlns:d15p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
-                          </PropertyValue>
-                          <PropertyValue z:Id="i19">
-                            <PropertyName>Timeout</PropertyName>
-                            <_dataType>Value</_dataType>
-                            <_expression i:nil="true" />
-                            <_value xmlns:d15p1="http://www.w3.org/2001/XMLSchema" i:type="d15p1:int">0</_value>
+                            <PropertyName>To</PropertyName>
+                            <_dataType>Expression</_dataType>
+                            <_expression>str_password</_expression>
+                            <_value i:nil="true" />
                             <_xpathSettings xmlns:d15p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
                           </PropertyValue>
                         </PropertyValues>
@@ -113,109 +85,39 @@
                         <EnableStatus>true</EnableStatus>
                         <ExceptionHandlingMode>Default</ExceptionHandlingMode>
                         <RetryCount>-1</RetryCount>
-                        <Text>Выполнить скрипт_получение списка городов</Text>
-                        <_activityFullName>BR.Core.Base.ExecuteScript</_activityFullName>
+                        <Text></Text>
+                        <_activityFullName>BR.Core.Base.Assign</_activityFullName>
                       </AbstractStep>
-                      <AbstractStep z:Id="i20" i:type="ExecutedStep">
+                      <AbstractStep z:Id="i15" i:type="ExecutedStep">
                         <Childs />
-                        <Id>cc9e11ee-324d-46ec-81b0-664742f49d89</Id>
+                        <Id>8d672d89-d5e9-47c5-bf5a-761c4171f8cc</Id>
                         <Parent z:Ref="i11" />
                         <PropertyValues>
-                          <PropertyValue z:Id="i21">
-                            <PropertyName>Url</PropertyName>
+                          <PropertyValue z:Id="i16">
+                            <PropertyName>DataBaseConnectionString</PropertyName>
                             <_dataType>Expression</_dataType>
-                            <_expression>"https://api.rivegauche.ru/rg/v1/newRG/countries/RU/cities"</_expression>
+                            <_expression>@"Driver={PostgreSQL Unicode(x64)};Server=localhost;Port=5433;Database=RiwGosh;Uid="+dict_config["credentialPG_login"].ToString()+";Pwd="+str_password+";"</_expression>
                             <_value i:nil="true" />
                             <_xpathSettings xmlns:d15p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
                           </PropertyValue>
-                          <PropertyValue z:Id="i22">
-                            <PropertyName>Timeout</PropertyName>
-                            <_dataType>Value</_dataType>
-                            <_expression i:nil="true" />
-                            <_value xmlns:d15p1="http://www.w3.org/2001/XMLSchema" i:type="d15p1:int">20</_value>
-                            <_xpathSettings xmlns:d15p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
-                          </PropertyValue>
-                          <PropertyValue z:Id="i23">
-                            <PropertyName>Method</PropertyName>
-                            <_dataType>Value</_dataType>
-                            <_expression i:nil="true" />
-                            <_value xmlns:d15p1="http://schemas.datacontract.org/2004/07/Activities.HTTP" i:type="d15p1:HTTPResponsesWithFile.TypeMethod">Get</_value>
-                            <_xpathSettings xmlns:d15p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
-                          </PropertyValue>
-                          <PropertyValue z:Id="i24">
-                            <PropertyName>PostData</PropertyName>
+                          <PropertyValue z:Id="i17">
+                            <PropertyName>DataBaseSecureConnectionString</PropertyName>
                             <_dataType>Value</_dataType>
                             <_expression></_expression>
                             <_value i:nil="true" />
                             <_xpathSettings xmlns:d15p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
                           </PropertyValue>
-                          <PropertyValue z:Id="i25">
-                            <PropertyName>FileNames</PropertyName>
-                            <_dataType>Value</_dataType>
-                            <_expression></_expression>
-                            <_value i:nil="true" />
-                            <_xpathSettings xmlns:d15p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
-                          </PropertyValue>
-                          <PropertyValue z:Id="i26">
-                            <PropertyName>DataEncode</PropertyName>
-                            <_dataType>Value</_dataType>
-                            <_expression i:nil="true" />
-                            <_value xmlns:d15p1="http://www.w3.org/2001/XMLSchema" i:type="d15p1:string">utf-8</_value>
-                            <_xpathSettings xmlns:d15p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
-                          </PropertyValue>
-                          <PropertyValue z:Id="i27">
-                            <PropertyName>ContenDataType</PropertyName>
-                            <_dataType>Value</_dataType>
-                            <_expression></_expression>
-                            <_value i:nil="true" />
-                            <_xpathSettings xmlns:d15p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
-                          </PropertyValue>
-                          <PropertyValue z:Id="i28">
-                            <PropertyName>Headers</PropertyName>
-                            <_dataType>Value</_dataType>
-                            <_expression></_expression>
-                            <_value i:nil="true" />
-                            <_xpathSettings xmlns:d15p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
-                          </PropertyValue>
-                          <PropertyValue z:Id="i29">
-                            <PropertyName>PathToFile</PropertyName>
-                            <_dataType>Value</_dataType>
-                            <_expression></_expression>
-                            <_value i:nil="true" />
-                            <_xpathSettings xmlns:d15p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
-                          </PropertyValue>
-                          <PropertyValue z:Id="i30">
-                            <PropertyName>DisableSslValidation</PropertyName>
-                            <_dataType>Value</_dataType>
-                            <_expression i:nil="true" />
-                            <_value xmlns:d15p1="http://www.w3.org/2001/XMLSchema" i:type="d15p1:boolean">false</_value>
-                            <_xpathSettings xmlns:d15p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
-                          </PropertyValue>
-                          <PropertyValue z:Id="i31">
-                            <PropertyName>ContentResult</PropertyName>
+                          <PropertyValue z:Id="i18">
+                            <PropertyName>DataBaseProvider</PropertyName>
                             <_dataType>Expression</_dataType>
-                            <_expression>str_resultHTTP</_expression>
+                            <_expression>"System.Data.Odbc"</_expression>
                             <_value i:nil="true" />
                             <_xpathSettings xmlns:d15p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
                           </PropertyValue>
-                          <PropertyValue z:Id="i32">
-                            <PropertyName>HeadersResult</PropertyName>
+                          <PropertyValue z:Id="i19">
+                            <PropertyName>OutSqlConnection</PropertyName>
                             <_dataType>Expression</_dataType>
-                            <_expression></_expression>
-                            <_value i:nil="true" />
-                            <_xpathSettings xmlns:d15p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
-                          </PropertyValue>
-                          <PropertyValue z:Id="i33">
-                            <PropertyName>Status</PropertyName>
-                            <_dataType>Expression</_dataType>
-                            <_expression></_expression>
-                            <_value i:nil="true" />
-                            <_xpathSettings xmlns:d15p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
-                          </PropertyValue>
-                          <PropertyValue z:Id="i34">
-                            <PropertyName>RuntimeException</PropertyName>
-                            <_dataType>Expression</_dataType>
-                            <_expression></_expression>
+                            <_expression>out_sql_rivegauche</_expression>
                             <_value i:nil="true" />
                             <_xpathSettings xmlns:d15p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
                           </PropertyValue>
@@ -224,139 +126,340 @@
                         <EnableStatus>true</EnableStatus>
                         <ExceptionHandlingMode>Default</ExceptionHandlingMode>
                         <RetryCount>-1</RetryCount>
-                        <Text>Отправить HTTP запрос_получение информации по всем городам RU</Text>
-                        <_activityFullName>Activities.HTTP.HTTPResponsesWithFile</_activityFullName>
+                        <Text></Text>
+                        <_activityFullName>Activities.DataBaseSQL.CreateConnection</_activityFullName>
                       </AbstractStep>
-                      <AbstractStep z:Id="i35" i:type="ExecutedStep">
-                        <Childs />
-                        <Id>2bc51a6c-0ce8-4b4f-9010-e8808e20a797</Id>
-                        <Parent z:Ref="i11" />
-                        <PropertyValues>
-                          <PropertyValue z:Id="i36">
-                            <PropertyName>JSONString</PropertyName>
-                            <_dataType>Expression</_dataType>
-                            <_expression>str_resultHTTP</_expression>
-                            <_value i:nil="true" />
-                            <_xpathSettings xmlns:d15p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
-                          </PropertyValue>
-                          <PropertyValue z:Id="i37">
-                            <PropertyName>Result</PropertyName>
-                            <_dataType>Expression</_dataType>
-                            <_expression>js_fileAll</_expression>
-                            <_value i:nil="true" />
-                            <_xpathSettings xmlns:d15p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
-                          </PropertyValue>
-                        </PropertyValues>
-                        <SelectedOptionId i:nil="true" />
-                        <EnableStatus>true</EnableStatus>
-                        <ExceptionHandlingMode>Default</ExceptionHandlingMode>
-                        <RetryCount>-1</RetryCount>
-                        <Text>JSON_парсинг</Text>
-                        <_activityFullName>Activities.Parsing.JSONParsing</_activityFullName>
-                      </AbstractStep>
-                      <AbstractStep z:Id="i38" i:type="ExecutedStep">
+                      <AbstractStep z:Id="i20" i:type="ExecutedStep">
                         <Childs>
-                          <AbstractStep z:Id="i39" i:type="ExecutedStep">
+                          <AbstractStep z:Id="i21" i:type="ExecutedStep">
                             <Childs />
-                            <Id>d0c32673-c2fa-4254-9912-4c2376880b2b</Id>
-                            <Parent z:Ref="i38" />
+                            <Id>b9c938b4-3833-49f6-bd4b-f33e6a0809bf</Id>
+                            <Parent z:Ref="i20" />
                             <PropertyValues>
+                              <PropertyValue z:Id="i22">
+                                <PropertyName>FilePath</PropertyName>
+                                <_dataType>Expression</_dataType>
+                                <_expression>@"Dispatcher\SQLGetData.pix"</_expression>
+                                <_value i:nil="true" />
+                                <_xpathSettings xmlns:d17p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
+                              </PropertyValue>
+                              <PropertyValue z:Id="i23">
+                                <PropertyName>Parameters</PropertyName>
+                                <_dataType>Value</_dataType>
+                                <_expression i:nil="true" />
+                                <_value xmlns:d17p1="http://schemas.datacontract.org/2004/07/BR.Core" i:type="d17p1:ArrayOfArgumentItem">
+                                  <d17p1:ArgumentItem z:Id="i24">
+                                    <d17p1:ArgumentName>out_list_extractData</d17p1:ArgumentName>
+                                    <d17p1:Expression>list_cityName</d17p1:Expression>
+                                    <d17p1:Type>List&lt;System.String&gt;</d17p1:Type>
+                                  </d17p1:ArgumentItem>
+                                  <d17p1:ArgumentItem z:Id="i25">
+                                    <d17p1:ArgumentName>in_str_tableName</d17p1:ArgumentName>
+                                    <d17p1:Expression>dict_config["TableSqlCity"].ToString()</d17p1:Expression>
+                                    <d17p1:Type>System.String</d17p1:Type>
+                                  </d17p1:ArgumentItem>
+                                  <d17p1:ArgumentItem z:Id="i26">
+                                    <d17p1:ArgumentName>dict_config</d17p1:ArgumentName>
+                                    <d17p1:Expression>dict_config</d17p1:Expression>
+                                    <d17p1:Type>Dictionary&lt;System.String, System.Object&gt;</d17p1:Type>
+                                  </d17p1:ArgumentItem>
+                                  <d17p1:ArgumentItem z:Id="i27">
+                                    <d17p1:ArgumentName>dict_secureData</d17p1:ArgumentName>
+                                    <d17p1:Expression>dict_secureData</d17p1:Expression>
+                                    <d17p1:Type>Dictionary&lt;System.String, System.Security.SecureString&gt;</d17p1:Type>
+                                  </d17p1:ArgumentItem>
+                                </_value>
+                                <_xpathSettings xmlns:d17p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
+                              </PropertyValue>
+                              <PropertyValue z:Id="i28">
+                                <PropertyName>Timeout</PropertyName>
+                                <_dataType>Value</_dataType>
+                                <_expression i:nil="true" />
+                                <_value xmlns:d17p1="http://www.w3.org/2001/XMLSchema" i:type="d17p1:int">0</_value>
+                                <_xpathSettings xmlns:d17p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
+                              </PropertyValue>
+                            </PropertyValues>
+                            <SelectedOptionId i:nil="true" />
+                            <EnableStatus>true</EnableStatus>
+                            <ExceptionHandlingMode>Default</ExceptionHandlingMode>
+                            <RetryCount>-1</RetryCount>
+                            <Text>Выполнить скрипт_получение списка городов</Text>
+                            <_activityFullName>BR.Core.Base.ExecuteScript</_activityFullName>
+                          </AbstractStep>
+                          <AbstractStep z:Id="i29" i:type="ExecutedStep">
+                            <Childs />
+                            <Id>cc9e11ee-324d-46ec-81b0-664742f49d89</Id>
+                            <Parent z:Ref="i20" />
+                            <PropertyValues>
+                              <PropertyValue z:Id="i30">
+                                <PropertyName>Url</PropertyName>
+                                <_dataType>Expression</_dataType>
+                                <_expression>"https://api.rivegauche.ru/rg/v1/newRG/countries/RU/cities"</_expression>
+                                <_value i:nil="true" />
+                                <_xpathSettings xmlns:d17p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
+                              </PropertyValue>
+                              <PropertyValue z:Id="i31">
+                                <PropertyName>Timeout</PropertyName>
+                                <_dataType>Value</_dataType>
+                                <_expression i:nil="true" />
+                                <_value xmlns:d17p1="http://www.w3.org/2001/XMLSchema" i:type="d17p1:int">20</_value>
+                                <_xpathSettings xmlns:d17p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
+                              </PropertyValue>
+                              <PropertyValue z:Id="i32">
+                                <PropertyName>Method</PropertyName>
+                                <_dataType>Value</_dataType>
+                                <_expression i:nil="true" />
+                                <_value xmlns:d17p1="http://schemas.datacontract.org/2004/07/Activities.HTTP" i:type="d17p1:HTTPResponsesWithFile.TypeMethod">Get</_value>
+                                <_xpathSettings xmlns:d17p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
+                              </PropertyValue>
+                              <PropertyValue z:Id="i33">
+                                <PropertyName>PostData</PropertyName>
+                                <_dataType>Value</_dataType>
+                                <_expression></_expression>
+                                <_value i:nil="true" />
+                                <_xpathSettings xmlns:d17p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
+                              </PropertyValue>
+                              <PropertyValue z:Id="i34">
+                                <PropertyName>FileNames</PropertyName>
+                                <_dataType>Value</_dataType>
+                                <_expression></_expression>
+                                <_value i:nil="true" />
+                                <_xpathSettings xmlns:d17p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
+                              </PropertyValue>
+                              <PropertyValue z:Id="i35">
+                                <PropertyName>DataEncode</PropertyName>
+                                <_dataType>Value</_dataType>
+                                <_expression i:nil="true" />
+                                <_value xmlns:d17p1="http://www.w3.org/2001/XMLSchema" i:type="d17p1:string">utf-8</_value>
+                                <_xpathSettings xmlns:d17p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
+                              </PropertyValue>
+                              <PropertyValue z:Id="i36">
+                                <PropertyName>ContenDataType</PropertyName>
+                                <_dataType>Value</_dataType>
+                                <_expression></_expression>
+                                <_value i:nil="true" />
+                                <_xpathSettings xmlns:d17p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
+                              </PropertyValue>
+                              <PropertyValue z:Id="i37">
+                                <PropertyName>Headers</PropertyName>
+                                <_dataType>Value</_dataType>
+                                <_expression></_expression>
+                                <_value i:nil="true" />
+                                <_xpathSettings xmlns:d17p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
+                              </PropertyValue>
+                              <PropertyValue z:Id="i38">
+                                <PropertyName>PathToFile</PropertyName>
+                                <_dataType>Value</_dataType>
+                                <_expression></_expression>
+                                <_value i:nil="true" />
+                                <_xpathSettings xmlns:d17p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
+                              </PropertyValue>
+                              <PropertyValue z:Id="i39">
+                                <PropertyName>DisableSslValidation</PropertyName>
+                                <_dataType>Value</_dataType>
+                                <_expression i:nil="true" />
+                                <_value xmlns:d17p1="http://www.w3.org/2001/XMLSchema" i:type="d17p1:boolean">false</_value>
+                                <_xpathSettings xmlns:d17p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
+                              </PropertyValue>
                               <PropertyValue z:Id="i40">
-                                <PropertyName>JSONElement</PropertyName>
+                                <PropertyName>ContentResult</PropertyName>
+                                <_dataType>Expression</_dataType>
+                                <_expression>str_resultHTTP</_expression>
+                                <_value i:nil="true" />
+                                <_xpathSettings xmlns:d17p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
+                              </PropertyValue>
+                              <PropertyValue z:Id="i41">
+                                <PropertyName>HeadersResult</PropertyName>
+                                <_dataType>Expression</_dataType>
+                                <_expression></_expression>
+                                <_value i:nil="true" />
+                                <_xpathSettings xmlns:d17p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
+                              </PropertyValue>
+                              <PropertyValue z:Id="i42">
+                                <PropertyName>Status</PropertyName>
+                                <_dataType>Expression</_dataType>
+                                <_expression></_expression>
+                                <_value i:nil="true" />
+                                <_xpathSettings xmlns:d17p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
+                              </PropertyValue>
+                              <PropertyValue z:Id="i43">
+                                <PropertyName>RuntimeException</PropertyName>
+                                <_dataType>Expression</_dataType>
+                                <_expression></_expression>
+                                <_value i:nil="true" />
+                                <_xpathSettings xmlns:d17p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
+                              </PropertyValue>
+                            </PropertyValues>
+                            <SelectedOptionId>0</SelectedOptionId>
+                            <EnableStatus>true</EnableStatus>
+                            <ExceptionHandlingMode>Default</ExceptionHandlingMode>
+                            <RetryCount>-1</RetryCount>
+                            <Text>Отправить HTTP запрос_получение информации по всем городам RU</Text>
+                            <_activityFullName>Activities.HTTP.HTTPResponsesWithFile</_activityFullName>
+                          </AbstractStep>
+                          <AbstractStep z:Id="i44" i:type="ExecutedStep">
+                            <Childs />
+                            <Id>2bc51a6c-0ce8-4b4f-9010-e8808e20a797</Id>
+                            <Parent z:Ref="i20" />
+                            <PropertyValues>
+                              <PropertyValue z:Id="i45">
+                                <PropertyName>JSONString</PropertyName>
+                                <_dataType>Expression</_dataType>
+                                <_expression>str_resultHTTP</_expression>
+                                <_value i:nil="true" />
+                                <_xpathSettings xmlns:d17p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
+                              </PropertyValue>
+                              <PropertyValue z:Id="i46">
+                                <PropertyName>Result</PropertyName>
                                 <_dataType>Expression</_dataType>
                                 <_expression>js_fileAll</_expression>
                                 <_value i:nil="true" />
                                 <_xpathSettings xmlns:d17p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
                               </PropertyValue>
-                              <PropertyValue z:Id="i41">
-                                <PropertyName>PropertyName</PropertyName>
-                                <_dataType>Expression</_dataType>
-                                <_expression>$"{str_cityName[0]}"</_expression>
-                                <_value i:nil="true" />
-                                <_xpathSettings xmlns:d17p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
-                              </PropertyValue>
-                              <PropertyValue z:Id="i42">
-                                <PropertyName>JSONProperty</PropertyName>
-                                <_dataType>Expression</_dataType>
-                                <_expression>js_cityByFirstLetter</_expression>
-                                <_value i:nil="true" />
-                                <_xpathSettings xmlns:d17p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
-                              </PropertyValue>
-                              <PropertyValue z:Id="i43">
-                                <PropertyName>PropertyValue</PropertyName>
-                                <_dataType>Expression</_dataType>
-                                <_expression></_expression>
-                                <_value i:nil="true" />
-                                <_xpathSettings xmlns:d17p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
-                              </PropertyValue>
-                              <PropertyValue z:Id="i44">
-                                <PropertyName>ValueKind</PropertyName>
-                                <_dataType>Expression</_dataType>
-                                <_expression></_expression>
-                                <_value i:nil="true" />
-                                <_xpathSettings xmlns:d17p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
-                              </PropertyValue>
                             </PropertyValues>
                             <SelectedOptionId i:nil="true" />
                             <EnableStatus>true</EnableStatus>
                             <ExceptionHandlingMode>Default</ExceptionHandlingMode>
                             <RetryCount>-1</RetryCount>
-                            <Text>Получить свойство JSON элемента_по первой букве города</Text>
-                            <_activityFullName>Activities.Parsing.JSONElementGetProperty</_activityFullName>
+                            <Text>JSON_парсинг</Text>
+                            <_activityFullName>Activities.Parsing.JSONParsing</_activityFullName>
                           </AbstractStep>
-                          <AbstractStep z:Id="i45" i:type="CommentStep">
-                            <Childs />
-                            <Id>aa616cb9-2c90-4fcc-b1e9-287941e3d606</Id>
-                            <Parent z:Ref="i38" />
-                            <PropertyValues />
-                            <SelectedOptionId i:nil="true" />
-                            <Text>Проходится по всем городам начинающихся с одной буквы и по свойству имени ищет код для обрабатывемого города</Text>
-                          </AbstractStep>
-                          <AbstractStep z:Id="i46" i:type="ExecutedStep">
-                            <Childs />
-                            <Id>b3980b0e-741b-4e0d-bf1c-5c8dc490fc12</Id>
-                            <Parent z:Ref="i38" />
-                            <PropertyValues>
-                              <PropertyValue z:Id="i47">
-                                <PropertyName>Value</PropertyName>
-                                <_dataType>Expression</_dataType>
-                                <_expression>js_cityByFirstLetter.EnumerateArray()
+                          <AbstractStep z:Id="i47" i:type="ExecutedStep">
+                            <Childs>
+                              <AbstractStep z:Id="i48" i:type="ExecutedStep">
+                                <Childs />
+                                <Id>d0c32673-c2fa-4254-9912-4c2376880b2b</Id>
+                                <Parent z:Ref="i47" />
+                                <PropertyValues>
+                                  <PropertyValue z:Id="i49">
+                                    <PropertyName>JSONElement</PropertyName>
+                                    <_dataType>Expression</_dataType>
+                                    <_expression>js_fileAll</_expression>
+                                    <_value i:nil="true" />
+                                    <_xpathSettings xmlns:d19p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
+                                  </PropertyValue>
+                                  <PropertyValue z:Id="i50">
+                                    <PropertyName>PropertyName</PropertyName>
+                                    <_dataType>Expression</_dataType>
+                                    <_expression>$"{str_cityName[0]}"</_expression>
+                                    <_value i:nil="true" />
+                                    <_xpathSettings xmlns:d19p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
+                                  </PropertyValue>
+                                  <PropertyValue z:Id="i51">
+                                    <PropertyName>JSONProperty</PropertyName>
+                                    <_dataType>Expression</_dataType>
+                                    <_expression>js_cityByFirstLetter</_expression>
+                                    <_value i:nil="true" />
+                                    <_xpathSettings xmlns:d19p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
+                                  </PropertyValue>
+                                  <PropertyValue z:Id="i52">
+                                    <PropertyName>PropertyValue</PropertyName>
+                                    <_dataType>Expression</_dataType>
+                                    <_expression></_expression>
+                                    <_value i:nil="true" />
+                                    <_xpathSettings xmlns:d19p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
+                                  </PropertyValue>
+                                  <PropertyValue z:Id="i53">
+                                    <PropertyName>ValueKind</PropertyName>
+                                    <_dataType>Expression</_dataType>
+                                    <_expression></_expression>
+                                    <_value i:nil="true" />
+                                    <_xpathSettings xmlns:d19p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
+                                  </PropertyValue>
+                                </PropertyValues>
+                                <SelectedOptionId i:nil="true" />
+                                <EnableStatus>true</EnableStatus>
+                                <ExceptionHandlingMode>Default</ExceptionHandlingMode>
+                                <RetryCount>-1</RetryCount>
+                                <Text>Получить свойство JSON элемента_по первой букве города</Text>
+                                <_activityFullName>Activities.Parsing.JSONElementGetProperty</_activityFullName>
+                              </AbstractStep>
+                              <AbstractStep z:Id="i54" i:type="CommentStep">
+                                <Childs />
+                                <Id>aa616cb9-2c90-4fcc-b1e9-287941e3d606</Id>
+                                <Parent z:Ref="i47" />
+                                <PropertyValues />
+                                <SelectedOptionId i:nil="true" />
+                                <Text>Проходится по всем городам начинающихся с одной буквы и по свойству имени ищет код для обрабатывемого города</Text>
+                              </AbstractStep>
+                              <AbstractStep z:Id="i55" i:type="ExecutedStep">
+                                <Childs />
+                                <Id>b3980b0e-741b-4e0d-bf1c-5c8dc490fc12</Id>
+                                <Parent z:Ref="i47" />
+                                <PropertyValues>
+                                  <PropertyValue z:Id="i56">
+                                    <PropertyName>Value</PropertyName>
+                                    <_dataType>Expression</_dataType>
+                                    <_expression>js_cityByFirstLetter.EnumerateArray()
 .Where(x =&gt; x.GetProperty("name").ToString() == str_cityName)
 .Select(x =&gt; x.GetProperty("code")).First()</_expression>
-                                <_value i:nil="true" />
-                                <_xpathSettings xmlns:d17p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
-                              </PropertyValue>
-                              <PropertyValue z:Id="i48">
-                                <PropertyName>To</PropertyName>
-                                <_dataType>Expression</_dataType>
-                                <_expression>str_cityCode</_expression>
-                                <_value i:nil="true" />
-                                <_xpathSettings xmlns:d17p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
-                              </PropertyValue>
-                            </PropertyValues>
-                            <SelectedOptionId i:nil="true" />
-                            <EnableStatus>true</EnableStatus>
-                            <ExceptionHandlingMode>Default</ExceptionHandlingMode>
-                            <RetryCount>-1</RetryCount>
-                            <Text>Присвоить значение_линк на получение кода города</Text>
-                            <_activityFullName>BR.Core.Base.Assign</_activityFullName>
-                          </AbstractStep>
-                          <AbstractStep z:Id="i49" i:type="ExecutedStep">
-                            <Childs />
-                            <Id>ed31a973-8c2c-49ee-8db9-c7c5400c89df</Id>
-                            <Parent z:Ref="i38" />
+                                    <_value i:nil="true" />
+                                    <_xpathSettings xmlns:d19p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
+                                  </PropertyValue>
+                                  <PropertyValue z:Id="i57">
+                                    <PropertyName>To</PropertyName>
+                                    <_dataType>Expression</_dataType>
+                                    <_expression>str_cityCode</_expression>
+                                    <_value i:nil="true" />
+                                    <_xpathSettings xmlns:d19p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
+                                  </PropertyValue>
+                                </PropertyValues>
+                                <SelectedOptionId i:nil="true" />
+                                <EnableStatus>true</EnableStatus>
+                                <ExceptionHandlingMode>Default</ExceptionHandlingMode>
+                                <RetryCount>-1</RetryCount>
+                                <Text>Присвоить значение_линк на получение кода города</Text>
+                                <_activityFullName>BR.Core.Base.Assign</_activityFullName>
+                              </AbstractStep>
+                              <AbstractStep z:Id="i58" i:type="ExecutedStep">
+                                <Childs />
+                                <Id>ed31a973-8c2c-49ee-8db9-c7c5400c89df</Id>
+                                <Parent z:Ref="i47" />
+                                <PropertyValues>
+                                  <PropertyValue z:Id="i59">
+                                    <PropertyName>List</PropertyName>
+                                    <_dataType>Expression</_dataType>
+                                    <_expression>out_list_cityCode</_expression>
+                                    <_value i:nil="true" />
+                                    <_xpathSettings xmlns:d19p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
+                                  </PropertyValue>
+                                  <PropertyValue z:Id="i60">
+                                    <PropertyName>Object</PropertyName>
+                                    <_dataType>Expression</_dataType>
+                                    <_expression>str_cityCode.ToString()</_expression>
+                                    <_value i:nil="true" />
+                                    <_xpathSettings xmlns:d19p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
+                                  </PropertyValue>
+                                </PropertyValues>
+                                <SelectedOptionId i:nil="true" />
+                                <EnableStatus>true</EnableStatus>
+                                <ExceptionHandlingMode>Default</ExceptionHandlingMode>
+                                <RetryCount>-1</RetryCount>
+                                <Text>Поместить объект в список_запись кода города</Text>
+                                <_activityFullName>Activities.BaseCollections.List.Add</_activityFullName>
+                              </AbstractStep>
+                            </Childs>
+                            <Id>519c644b-23a5-42b5-b290-8a6dbc87b6ea</Id>
+                            <Parent z:Ref="i20" />
                             <PropertyValues>
-                              <PropertyValue z:Id="i50">
-                                <PropertyName>List</PropertyName>
+                              <PropertyValue z:Id="i61">
+                                <PropertyName>Collection</PropertyName>
                                 <_dataType>Expression</_dataType>
-                                <_expression>out_list_cityCode</_expression>
+                                <_expression>list_cityName</_expression>
                                 <_value i:nil="true" />
                                 <_xpathSettings xmlns:d17p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
                               </PropertyValue>
-                              <PropertyValue z:Id="i51">
-                                <PropertyName>Object</PropertyName>
+                              <PropertyValue z:Id="i62">
+                                <PropertyName>Iterator</PropertyName>
                                 <_dataType>Expression</_dataType>
-                                <_expression>str_cityCode.ToString()</_expression>
+                                <_expression>str_cityName</_expression>
+                                <_value i:nil="true" />
+                                <_xpathSettings xmlns:d17p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
+                              </PropertyValue>
+                              <PropertyValue z:Id="i63">
+                                <PropertyName>Counter</PropertyName>
+                                <_dataType>Expression</_dataType>
+                                <_expression>int_num</_expression>
                                 <_value i:nil="true" />
                                 <_xpathSettings xmlns:d17p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
                               </PropertyValue>
@@ -365,41 +468,19 @@
                             <EnableStatus>true</EnableStatus>
                             <ExceptionHandlingMode>Default</ExceptionHandlingMode>
                             <RetryCount>-1</RetryCount>
-                            <Text>Поместить объект в список_запись кода города</Text>
-                            <_activityFullName>Activities.BaseCollections.List.Add</_activityFullName>
+                            <Text>Цикл для каждого_города</Text>
+                            <_activityFullName>BR.Core.Base.LoopForEach</_activityFullName>
                           </AbstractStep>
                         </Childs>
-                        <Id>519c644b-23a5-42b5-b290-8a6dbc87b6ea</Id>
+                        <Id>6d3d1f04-70f8-43c6-af50-fa100875e7df</Id>
                         <Parent z:Ref="i11" />
-                        <PropertyValues>
-                          <PropertyValue z:Id="i52">
-                            <PropertyName>Collection</PropertyName>
-                            <_dataType>Expression</_dataType>
-                            <_expression>list_cityName</_expression>
-                            <_value i:nil="true" />
-                            <_xpathSettings xmlns:d15p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
-                          </PropertyValue>
-                          <PropertyValue z:Id="i53">
-                            <PropertyName>Iterator</PropertyName>
-                            <_dataType>Expression</_dataType>
-                            <_expression>str_cityName</_expression>
-                            <_value i:nil="true" />
-                            <_xpathSettings xmlns:d15p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
-                          </PropertyValue>
-                          <PropertyValue z:Id="i54">
-                            <PropertyName>Counter</PropertyName>
-                            <_dataType>Expression</_dataType>
-                            <_expression>int_num</_expression>
-                            <_value i:nil="true" />
-                            <_xpathSettings xmlns:d15p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
-                          </PropertyValue>
-                        </PropertyValues>
+                        <PropertyValues />
                         <SelectedOptionId i:nil="true" />
                         <EnableStatus>true</EnableStatus>
                         <ExceptionHandlingMode>Default</ExceptionHandlingMode>
                         <RetryCount>-1</RetryCount>
-                        <Text>Цикл для каждого_города</Text>
-                        <_activityFullName>BR.Core.Base.LoopForEach</_activityFullName>
+                        <Text>Получение кодов городов</Text>
+                        <_activityFullName>BR.Core.Base.Container</_activityFullName>
                       </AbstractStep>
                     </Childs>
                     <Id>aaa774a7-856b-46d1-aeb2-a148a8686a04</Id>
@@ -416,7 +497,7 @@
                 <Id>0a1e6454-6e3c-493e-8b44-c16590fab046</Id>
                 <Parent z:Ref="i8" />
                 <PropertyValues>
-                  <PropertyValue z:Id="i55">
+                  <PropertyValue z:Id="i64">
                     <PropertyName>Condition</PropertyName>
                     <_dataType>Expression</_dataType>
                     <_expression>bool_useDispatcher==true</_expression>
@@ -442,25 +523,25 @@
             <Text></Text>
             <_activityFullName>BR.Core.Base.Try</_activityFullName>
           </AbstractStep>
-          <AbstractStep z:Id="i56" i:type="ExecutedStep">
+          <AbstractStep z:Id="i65" i:type="ExecutedStep">
             <Childs>
-              <AbstractStep z:Id="i57" i:type="ExecutedStep">
+              <AbstractStep z:Id="i66" i:type="ExecutedStep">
                 <Childs>
-                  <AbstractStep z:Id="i58" i:type="ExecutedStep">
+                  <AbstractStep z:Id="i67" i:type="ExecutedStep">
                     <Childs>
-                      <AbstractStep z:Id="i59" i:type="ExecutedStep">
+                      <AbstractStep z:Id="i68" i:type="ExecutedStep">
                         <Childs />
                         <Id>87f53e9a-d1ec-44d9-933d-c8046aaa3eff</Id>
-                        <Parent z:Ref="i58" />
+                        <Parent z:Ref="i67" />
                         <PropertyValues>
-                          <PropertyValue z:Id="i60">
+                          <PropertyValue z:Id="i69">
                             <PropertyName>Value</PropertyName>
                             <_dataType>Expression</_dataType>
                             <_expression>$"{error.GetType()}: {errorMessage}"</_expression>
                             <_value i:nil="true" />
                             <_xpathSettings xmlns:d15p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
                           </PropertyValue>
-                          <PropertyValue z:Id="i61">
+                          <PropertyValue z:Id="i70">
                             <PropertyName>To</PropertyName>
                             <_dataType>Expression</_dataType>
                             <_expression>dict_config["MessageBody"]</_expression>
@@ -475,44 +556,44 @@
                         <Text>Тело сообщения - Бизнес-ошибка</Text>
                         <_activityFullName>BR.Core.Base.Assign</_activityFullName>
                       </AbstractStep>
-                      <AbstractStep z:Id="i62" i:type="ExecutedStep">
+                      <AbstractStep z:Id="i71" i:type="ExecutedStep">
                         <Childs />
                         <Id>f3934114-d222-4d21-bad1-3a28af98ca94</Id>
-                        <Parent z:Ref="i58" />
+                        <Parent z:Ref="i67" />
                         <PropertyValues>
-                          <PropertyValue z:Id="i63">
+                          <PropertyValue z:Id="i72">
                             <PropertyName>FilePath</PropertyName>
                             <_dataType>Expression</_dataType>
                             <_expression>@"FrameworkScripts\Notification.pix"</_expression>
                             <_value i:nil="true" />
                             <_xpathSettings xmlns:d15p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
                           </PropertyValue>
-                          <PropertyValue z:Id="i64">
+                          <PropertyValue z:Id="i73">
                             <PropertyName>Parameters</PropertyName>
                             <_dataType>Value</_dataType>
                             <_expression i:nil="true" />
                             <_value xmlns:d15p1="http://schemas.datacontract.org/2004/07/BR.Core" i:type="d15p1:ArrayOfArgumentItem">
-                              <d15p1:ArgumentItem z:Id="i65">
+                              <d15p1:ArgumentItem z:Id="i74">
                                 <d15p1:ArgumentName>dict_config</d15p1:ArgumentName>
                                 <d15p1:Expression>dict_config</d15p1:Expression>
                                 <d15p1:Type>Dictionary&lt;System.String, System.Object&gt;</d15p1:Type>
                               </d15p1:ArgumentItem>
-                              <d15p1:ArgumentItem z:Id="i66">
+                              <d15p1:ArgumentItem z:Id="i75">
                                 <d15p1:ArgumentName>int_notifyType</d15p1:ArgumentName>
                                 <d15p1:Expression>2</d15p1:Expression>
                                 <d15p1:Type>System.Int32</d15p1:Type>
                               </d15p1:ArgumentItem>
-                              <d15p1:ArgumentItem z:Id="i67">
+                              <d15p1:ArgumentItem z:Id="i76">
                                 <d15p1:ArgumentName>list_attaches</d15p1:ArgumentName>
                                 <d15p1:Expression>new List&lt;string&gt;{}</d15p1:Expression>
                                 <d15p1:Type>List&lt;System.String&gt;</d15p1:Type>
                               </d15p1:ArgumentItem>
-                              <d15p1:ArgumentItem z:Id="i68">
+                              <d15p1:ArgumentItem z:Id="i77">
                                 <d15p1:ArgumentName>sec_mailPassword</d15p1:ArgumentName>
                                 <d15p1:Expression>dict_secureData["MailCred_passwd"]</d15p1:Expression>
                                 <d15p1:Type>System.Security.SecureString</d15p1:Type>
                               </d15p1:ArgumentItem>
-                              <d15p1:ArgumentItem z:Id="i69">
+                              <d15p1:ArgumentItem z:Id="i78">
                                 <d15p1:ArgumentName>bool_takeScreenshot</d15p1:ArgumentName>
                                 <d15p1:Expression>true</d15p1:Expression>
                                 <d15p1:Type>System.Boolean</d15p1:Type>
@@ -520,7 +601,7 @@
                             </_value>
                             <_xpathSettings xmlns:d15p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
                           </PropertyValue>
-                          <PropertyValue z:Id="i70">
+                          <PropertyValue z:Id="i79">
                             <PropertyName>Timeout</PropertyName>
                             <_dataType>Value</_dataType>
                             <_expression i:nil="true" />
@@ -535,19 +616,19 @@
                         <Text>Выполнить скрипт отправки письма, int_notifyType - 2</Text>
                         <_activityFullName>BR.Core.Base.ExecuteScript</_activityFullName>
                       </AbstractStep>
-                      <AbstractStep z:Id="i71" i:type="ExecutedStep">
+                      <AbstractStep z:Id="i80" i:type="ExecutedStep">
                         <Childs />
                         <Id>461e3054-9763-402a-abeb-3c92a13e3318</Id>
-                        <Parent z:Ref="i58" />
+                        <Parent z:Ref="i67" />
                         <PropertyValues>
-                          <PropertyValue z:Id="i72">
+                          <PropertyValue z:Id="i81">
                             <PropertyName>Text</PropertyName>
                             <_dataType>Expression</_dataType>
                             <_expression>errorInfo</_expression>
                             <_value i:nil="true" />
                             <_xpathSettings xmlns:d15p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
                           </PropertyValue>
-                          <PropertyValue z:Id="i73">
+                          <PropertyValue z:Id="i82">
                             <PropertyName>Exception</PropertyName>
                             <_dataType>Expression</_dataType>
                             <_expression>new BusinessRuleException($"{error.GetType()}: {errorMessage}")</_expression>
@@ -564,7 +645,7 @@
                       </AbstractStep>
                     </Childs>
                     <Id>74e5ad59-d45b-4fc5-8bbb-7f9b66e99787</Id>
-                    <Parent z:Ref="i57" />
+                    <Parent z:Ref="i66" />
                     <PropertyValues />
                     <SelectedOptionId i:nil="true" />
                     <EnableStatus>true</EnableStatus>
@@ -573,21 +654,21 @@
                     <Text></Text>
                     <_activityFullName>BR.Core.Base.IfTrue</_activityFullName>
                   </AbstractStep>
-                  <AbstractStep z:Id="i74" i:type="ExecutedStep">
+                  <AbstractStep z:Id="i83" i:type="ExecutedStep">
                     <Childs>
-                      <AbstractStep z:Id="i75" i:type="ExecutedStep">
+                      <AbstractStep z:Id="i84" i:type="ExecutedStep">
                         <Childs />
                         <Id>5178c6ab-b76c-4204-be11-6c272e548a8b</Id>
-                        <Parent z:Ref="i74" />
+                        <Parent z:Ref="i83" />
                         <PropertyValues>
-                          <PropertyValue z:Id="i76">
+                          <PropertyValue z:Id="i85">
                             <PropertyName>Value</PropertyName>
                             <_dataType>Expression</_dataType>
                             <_expression>$"{error.GetType()}: {errorMessage}\n{errorSource}"</_expression>
                             <_value i:nil="true" />
                             <_xpathSettings xmlns:d15p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
                           </PropertyValue>
-                          <PropertyValue z:Id="i77">
+                          <PropertyValue z:Id="i86">
                             <PropertyName>To</PropertyName>
                             <_dataType>Expression</_dataType>
                             <_expression>dict_config["MessageBody"]</_expression>
@@ -602,44 +683,44 @@
                         <Text>Тело сообщения - Системная ошибка</Text>
                         <_activityFullName>BR.Core.Base.Assign</_activityFullName>
                       </AbstractStep>
-                      <AbstractStep z:Id="i78" i:type="ExecutedStep">
+                      <AbstractStep z:Id="i87" i:type="ExecutedStep">
                         <Childs />
                         <Id>ea212f12-c53d-41b5-86dc-2733172d8883</Id>
-                        <Parent z:Ref="i74" />
+                        <Parent z:Ref="i83" />
                         <PropertyValues>
-                          <PropertyValue z:Id="i79">
+                          <PropertyValue z:Id="i88">
                             <PropertyName>FilePath</PropertyName>
                             <_dataType>Expression</_dataType>
                             <_expression>@"FrameworkScripts\Notification.pix"</_expression>
                             <_value i:nil="true" />
                             <_xpathSettings xmlns:d15p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
                           </PropertyValue>
-                          <PropertyValue z:Id="i80">
+                          <PropertyValue z:Id="i89">
                             <PropertyName>Parameters</PropertyName>
                             <_dataType>Value</_dataType>
                             <_expression i:nil="true" />
                             <_value xmlns:d15p1="http://schemas.datacontract.org/2004/07/BR.Core" i:type="d15p1:ArrayOfArgumentItem">
-                              <d15p1:ArgumentItem z:Id="i81">
+                              <d15p1:ArgumentItem z:Id="i90">
                                 <d15p1:ArgumentName>dict_config</d15p1:ArgumentName>
                                 <d15p1:Expression>dict_config</d15p1:Expression>
                                 <d15p1:Type>Dictionary&lt;System.String, System.Object&gt;</d15p1:Type>
                               </d15p1:ArgumentItem>
-                              <d15p1:ArgumentItem z:Id="i82">
+                              <d15p1:ArgumentItem z:Id="i91">
                                 <d15p1:ArgumentName>int_notifyType</d15p1:ArgumentName>
                                 <d15p1:Expression>3</d15p1:Expression>
                                 <d15p1:Type>System.Int32</d15p1:Type>
                               </d15p1:ArgumentItem>
-                              <d15p1:ArgumentItem z:Id="i83">
+                              <d15p1:ArgumentItem z:Id="i92">
                                 <d15p1:ArgumentName>list_attaches</d15p1:ArgumentName>
                                 <d15p1:Expression>new List&lt;string&gt;{}</d15p1:Expression>
                                 <d15p1:Type>List&lt;System.String&gt;</d15p1:Type>
                               </d15p1:ArgumentItem>
-                              <d15p1:ArgumentItem z:Id="i84">
+                              <d15p1:ArgumentItem z:Id="i93">
                                 <d15p1:ArgumentName>sec_mailPassword</d15p1:ArgumentName>
                                 <d15p1:Expression>dict_secureData["MailCred_passwd"]</d15p1:Expression>
                                 <d15p1:Type>System.Security.SecureString</d15p1:Type>
                               </d15p1:ArgumentItem>
-                              <d15p1:ArgumentItem z:Id="i85">
+                              <d15p1:ArgumentItem z:Id="i94">
                                 <d15p1:ArgumentName>bool_takeScreenshot</d15p1:ArgumentName>
                                 <d15p1:Expression>true</d15p1:Expression>
                                 <d15p1:Type>System.Boolean</d15p1:Type>
@@ -647,7 +728,7 @@
                             </_value>
                             <_xpathSettings xmlns:d15p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
                           </PropertyValue>
-                          <PropertyValue z:Id="i86">
+                          <PropertyValue z:Id="i95">
                             <PropertyName>Timeout</PropertyName>
                             <_dataType>Value</_dataType>
                             <_expression i:nil="true" />
@@ -662,19 +743,19 @@
                         <Text>Выполнить скрипт отправки письма, int_notifyType - 3</Text>
                         <_activityFullName>BR.Core.Base.ExecuteScript</_activityFullName>
                       </AbstractStep>
-                      <AbstractStep z:Id="i87" i:type="ExecutedStep">
+                      <AbstractStep z:Id="i96" i:type="ExecutedStep">
                         <Childs />
                         <Id>66a08cdb-b4c7-49c1-aac5-27bb5229c990</Id>
-                        <Parent z:Ref="i74" />
+                        <Parent z:Ref="i83" />
                         <PropertyValues>
-                          <PropertyValue z:Id="i88">
+                          <PropertyValue z:Id="i97">
                             <PropertyName>Text</PropertyName>
                             <_dataType>Expression</_dataType>
                             <_expression>$"{error.GetType()}: {errorMessage}\n{errorSource}"</_expression>
                             <_value i:nil="true" />
                             <_xpathSettings xmlns:d15p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
                           </PropertyValue>
-                          <PropertyValue z:Id="i89">
+                          <PropertyValue z:Id="i98">
                             <PropertyName>Exception</PropertyName>
                             <_dataType>Expression</_dataType>
                             <_expression>errorInfo</_expression>
@@ -691,7 +772,7 @@
                       </AbstractStep>
                     </Childs>
                     <Id>40a16b14-f6cc-4dcb-b1b1-0a8dc5ea4fa0</Id>
-                    <Parent z:Ref="i57" />
+                    <Parent z:Ref="i66" />
                     <PropertyValues />
                     <SelectedOptionId i:nil="true" />
                     <EnableStatus>true</EnableStatus>
@@ -702,9 +783,9 @@
                   </AbstractStep>
                 </Childs>
                 <Id>03445fab-c348-48fd-8c55-20577f0e76cf</Id>
-                <Parent z:Ref="i56" />
+                <Parent z:Ref="i65" />
                 <PropertyValues>
-                  <PropertyValue z:Id="i90">
+                  <PropertyValue z:Id="i99">
                     <PropertyName>Condition</PropertyName>
                     <_dataType>Expression</_dataType>
                     <_expression>error.GetType() == new BusinessRuleException().GetType()</_expression>
@@ -723,28 +804,28 @@
             <Id>3ee66eda-5ebf-4a74-817d-8123360c85f5</Id>
             <Parent z:Ref="i7" />
             <PropertyValues>
-              <PropertyValue z:Id="i91">
+              <PropertyValue z:Id="i100">
                 <PropertyName>Message</PropertyName>
                 <_dataType>Expression</_dataType>
                 <_expression>errorMessage</_expression>
                 <_value i:nil="true" />
                 <_xpathSettings xmlns:d9p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
               </PropertyValue>
-              <PropertyValue z:Id="i92">
+              <PropertyValue z:Id="i101">
                 <PropertyName>StackTrace</PropertyName>
                 <_dataType>Expression</_dataType>
                 <_expression></_expression>
                 <_value i:nil="true" />
                 <_xpathSettings xmlns:d9p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
               </PropertyValue>
-              <PropertyValue z:Id="i93">
+              <PropertyValue z:Id="i102">
                 <PropertyName>Source</PropertyName>
                 <_dataType>Expression</_dataType>
                 <_expression>errorSource</_expression>
                 <_value i:nil="true" />
                 <_xpathSettings xmlns:d9p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
               </PropertyValue>
-              <PropertyValue z:Id="i94">
+              <PropertyValue z:Id="i103">
                 <PropertyName>Exception</PropertyName>
                 <_dataType>Expression</_dataType>
                 <_expression>error</_expression>
@@ -759,7 +840,7 @@
             <Text></Text>
             <_activityFullName>BR.Core.Base.Catch</_activityFullName>
           </AbstractStep>
-          <AbstractStep z:Id="i95" i:type="ExecutedStep">
+          <AbstractStep z:Id="i104" i:type="ExecutedStep">
             <Childs />
             <Id>a0db4eec-603b-46f2-92b0-2baab33903f2</Id>
             <Parent z:Ref="i7" />
@@ -798,29 +879,35 @@
     <d2p1:string>PIX.Core.Exceptions</d2p1:string>
   </Namespaces>
   <Params>
-    <Parameter z:Id="i96">
+    <Parameter z:Id="i105">
       <DefaultValueExpression></DefaultValueExpression>
       <Description></Description>
       <Name>dict_config</Name>
       <TypeString>System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Object, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]</TypeString>
     </Parameter>
-    <Parameter z:Id="i97">
+    <Parameter z:Id="i106">
       <DefaultValueExpression></DefaultValueExpression>
       <Description></Description>
       <Name>dict_secureData</Name>
       <TypeString>System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Security.SecureString, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]</TypeString>
     </Parameter>
-    <Parameter z:Id="i98">
+    <Parameter z:Id="i107">
       <DefaultValueExpression></DefaultValueExpression>
       <Description></Description>
       <Name>bool_useDispatcher</Name>
       <TypeString>System.Boolean</TypeString>
     </Parameter>
-    <Parameter z:Id="i99">
+    <Parameter z:Id="i108">
       <DefaultValueExpression></DefaultValueExpression>
       <Description></Description>
       <Name>out_list_cityCode</Name>
       <TypeString>System.Collections.Generic.List`1[[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]</TypeString>
+    </Parameter>
+    <Parameter z:Id="i109">
+      <DefaultValueExpression></DefaultValueExpression>
+      <Description></Description>
+      <Name>out_sql_rivegauche</Name>
+      <TypeString>Activities.DataBaseSQL.Core.DataBaseShareMethodConnection</TypeString>
     </Parameter>
   </Params>
   <TemplateVersion xmlns:d2p1="http://schemas.datacontract.org/2004/07/System" i:nil="true" />
