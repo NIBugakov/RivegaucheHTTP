@@ -36,7 +36,7 @@ chrome - Google Chrome</Text>
                   <PropertyValue z:Id="i7">
                     <PropertyName>Value</PropertyName>
                     <_dataType>Expression</_dataType>
-                    <_expression>new List&lt;String&gt;{"chrome", "excel"}</_expression>
+                    <_expression>new List&lt;String&gt;{"excel"}</_expression>
                     <_value i:nil="true" />
                     <_xpathSettings xmlns:d11p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
                   </PropertyValue>

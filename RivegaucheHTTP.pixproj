@@ -59,6 +59,10 @@
       <IsMain>false</IsMain>
       <Path>Dispatcher\SQLGetData.pix</Path>
     </ProjectFileItem>
+    <ProjectFileItem z:Id="i16">
+      <IsMain>false</IsMain>
+      <Path>Performer\DataExtractor.pix</Path>
+    </ProjectFileItem>
   </Files>
   <MasterUploadId i:nil="true" />
   <Name>RivegaucheHTTP</Name>
