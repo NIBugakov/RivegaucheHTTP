@@ -4046,13 +4046,13 @@ STATE 5: Завершение</Text>
       <TypeString>System.String</TypeString>
     </Parameter>
     <Parameter z:Id="i446">
-      <DefaultValueExpression>false</DefaultValueExpression>
+      <DefaultValueExpression>true</DefaultValueExpression>
       <Description>bool_useDispatcher==true, bool_usePerformer==false - робот работает в режиме создания транзакций в целевую очередь.</Description>
       <Name>bool_useDispatcher</Name>
       <TypeString>System.Boolean</TypeString>
     </Parameter>
     <Parameter z:Id="i447">
-      <DefaultValueExpression>true</DefaultValueExpression>
+      <DefaultValueExpression>false</DefaultValueExpression>
       <Description>bool_usePerformer==true, bool_useDispatcher==false - робот работает в режиме обработки транзакций в целевой очереди.</Description>
       <Name>bool_usePerformer</Name>
       <TypeString>System.Boolean</TypeString>
